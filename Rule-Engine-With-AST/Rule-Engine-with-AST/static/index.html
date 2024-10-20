@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rule Engine Interface</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <header class="text-center mb-4">
+      <h1>Rule Engine</h1>
+      <p class="lead">Create, Evaluate, Modify, and Store Rules with AST Visualization</p>
+    </header>
+
+    <!-- Main Content Row -->
+    <div class="row">
+      <!-- Left Column (Forms Section) -->
+      <div class="col-md-6">
+        <!-- Create Rule -->
+        <div class="card mb-4">
+          <div class="card-header text-center">Create Rule</div>
+          <div class="card-body">
+            <form id="create-rule-form">
+              <div class="mb-3">
+                <label for="rule" class="form-label">Rule String</label>
+                <input type="text" class="form-control" id="rule" placeholder="age > 30 AND department = 'Sales'" required>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Create Rule</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Evaluate Rule -->
+        <div class="card mb-4">
+          <div class="card-header text-center">Evaluate Rule</div>
+          <div class="card-body">
+            <form id="evaluate-rule-form">
+              <div class="mb-3">
+                <label for="user-data" class="form-label">User Data (JSON format)</label>
+                <textarea class="form-control" id="user-data" rows="3" placeholder='{"age": 35, "department": "Sales"}' required></textarea>
+              </div>
+              <button type="submit" class="btn btn-success w-100">Evaluate Rule</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Modify Rule -->
+        <div class="card mb-4">
+          <div class="card-header text-center">Modify Rule</div>
+          <div class="card-body">
+            <form id="modify-rule-form">
+              <div class="mb-3">
+                <label for="modification" class="form-label">Modification (JSON format)</label>
+                <textarea class="form-control" id="modification" rows="3" placeholder='{"action": "add_condition", "field": "location", "operator": "=", "value": "New York"}' required></textarea>
+              </div>
+              <button type="submit" class="btn btn-warning w-100">Modify Rule</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Store Rule -->
+        <div class="card mb-4">
+          <div class="card-header text-center">Store Rule</div>
+          <div class="card-body">
+            <form id="store-rule-form">
+              <button type="submit" class="btn btn-info w-100">Store Current Rule</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column (AST Section) -->
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-header text-center">Abstract Syntax Tree (AST)</div>
+          <div class="card-body">
+            <div id="ast-tree">
+              <!-- AST output will appear here -->
+              <div id="ast-output" class="text-center">AST data will appear here in a simple format.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- End of row -->
+  </div> <!-- End of container -->
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
